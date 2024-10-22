@@ -1,4 +1,4 @@
-// version 1.20
+// version 1.21
 
 const katakanaList = [
   // Basic Vowels
