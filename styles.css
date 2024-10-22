@@ -55,11 +55,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
     
-    .choice-button:hover {
-        background-color: #bb86fc;
-        color: #000;
-    }
-    
     .choice-button:disabled {
         background-color: #3c3c3c;
         border-color: #3c3c3c;
@@ -133,11 +128,5 @@
         color: #000 !important;
     }
 
-/* Disable hover effects on touch devices */
-@media (hover: hover) and (pointer: fine) {
-    .choice-button:hover {
-        background-color: #bb86fc;
-        color: #000;
-    }
-}
+
 
