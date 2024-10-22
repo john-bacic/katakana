@@ -1,4 +1,4 @@
-         /* version 1.24 */
+         /* version 1.25 */
     
         body {
             background-color: #121212;
@@ -369,8 +369,9 @@
 /* Responsive adjustments for mobile Safari */
 @media (max-width: 600px) {
     .timer-svg {
-        width: 80px; /* Adjust size as needed */
-        height: 80px;
+        width: 60px; /* Adjust size as needed */
+        height: 60px;
+        margin-top: -10px;
     }
 
     .timer-text {
