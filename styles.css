@@ -1,10 +1,11 @@
       
-/* version 1.7 */
+/* version 1.8 */
 
     body {
         background-color: #121212;
         color: #ffffff;
         font-family: 'Lexend', sans-serif;
+        font-weight: bold;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -33,6 +34,7 @@
         font-size: 100px;
         margin-bottom: 100px;
         color: #00ff2a;
+        font-weight: 200;
     }
     
     #choices-container {
@@ -50,8 +52,9 @@
         height: 150px;
         font-size: 32px;
         font-family: 'Lexend', sans-serif;
+        font-weight: bold;
         border: 2px solid #00ff2a17;
-        border-radius: 5px;
+        border-radius: 25px;
         background-color: #2c2c2c;
         color: #ffffff;
         cursor: pointer;
@@ -84,6 +87,7 @@
     #start-button {
         background-color: #00ff2a;
         color: #000;
+        font-weight: bold;
     }
     
     #score-container {
@@ -119,11 +123,13 @@
     }
     
     .feedback-check {
-        left: 10px;
+        right: 10px; /* Move checkmark to the right edge */
+        left: auto;
     }
     
     .feedback-x {
-        right: 10px;
+        left: 10px; /* Move X to the left edge */
+        right: auto;
     }
     
     #right-bar {
@@ -149,13 +155,15 @@
     button.correct {
         background-color: #4CAF50 !important;
         color: #000 !important;
-        font-weight: bold;
+
+
     }
     
     button.incorrect {
         background-color: #f44336 !important;
         color: #000 !important;
-        font-weight: bold;
+
+
     }
     
     /* Show feedback icons */
