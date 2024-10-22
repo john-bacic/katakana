@@ -237,13 +237,13 @@
 
     .timer-text {
         fill: #ffffff;
-        font-size: 20px;
-        font-family: 'Lexend', sans-serif;
-        transform-origin: center;
-        transform: rotate(90deg);
+        font-size: 1.5em; /* Adjust size as needed */
+        /* dominant-baseline: middle; */ /* Removed to fix the error */
+        text-anchor: middle; /* Horizontally center the text */
+        /* transform: rotate(-90deg); */
     }
 
-/* Add to the end of styles.css */
+
 
 /* Overlay Styles */
 .overlay {
@@ -364,4 +364,17 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+}
+
+
+/* Responsive adjustments for mobile Safari */
+@media (max-width: 600px) {
+    .timer-svg {
+        width: 80px; /* Adjust size as needed */
+        height: 80px;
+    }
+
+    .timer-text {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
 }
