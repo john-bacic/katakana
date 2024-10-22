@@ -1,4 +1,4 @@
-         /* version 1.14 */
+         /* version 1.15 */
     
         body {
             background-color: #121212;
@@ -9,20 +9,24 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            min-height: 100svh;
+            min-height: 90svh;
+
         }
         
-        .container {
-            position: relative;
-            text-align: center;
-            background-color: #1e1e1e;
-            padding: 20px 50px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
+
+            .container {
+                position: relative;
+                text-align: center;
+                background-color: #1e1e1e;
+                padding: 20px 50px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                min-width: 80vw;
+            }
         
         #game {
             margin-top: 60px; /* Adjust based on score-container height */
