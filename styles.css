@@ -206,8 +206,8 @@
 
     /* Timer Styles */
     #timer {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         margin-right: 15px;
         /* transform: rotate(90deg); */
     }
@@ -368,13 +368,13 @@
 
 /* Responsive adjustments for mobile Safari */
 @media (max-width: 600px) {
-    .timer-svg {
-        width: 60px; /* Adjust size as needed */
+    /* .timer-svg {
+        width: 60px; 
         height: 60px;
         margin-top: -10px;
     }
 
     .timer-text {
-        font-size: 1em; /* Adjust font size for smaller screens */
-    }
+        font-size: 1em; 
+    } */
 }
