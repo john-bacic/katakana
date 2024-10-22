@@ -196,9 +196,11 @@ function selectAnswer(selected) {
     } else if (button.textContent === selected) {
       button.classList.add('incorrect')
     } else {
-      button.style.backgroundColor = '#2c2c2c'
+      button.style.backgroundColor = '#2f2f2f5c'
       button.style.color = '#555'
       button.style.textShadow = 'none'
+      // button.style.boxShadow = 'none'
+      button.style.border = 'none'
     }
   })
   if (selected === currentQuestion.romaji) {
