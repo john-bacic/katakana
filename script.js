@@ -179,6 +179,7 @@ function displayChoices(choices) {
     button.classList.add('choice-button')
     button.textContent = choice
     button.addEventListener('click', () => selectAnswer(choice))
+    button.addEventListener('touchstart', () => selectAnswer(choice)) // Added touch event
     choicesContainer.appendChild(button)
   })
 }
