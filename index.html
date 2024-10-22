@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katakana Learning Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="score-container">
+            <div id="score-bar">
+                <div id="right-bar"></div>
+                <div id="wrong-bar"></div>
+            </div>
+            <p><span id="score">0</span> / <span id="tries">0</span></p>
+        </div>
+        <div id="game">
+            <div id="question-container">           
+                 <p id="question"><span style="font-size: 24px;">Press スタート</span></p>
+            </div>
+            <div id="choices-container">
+                <!-- Choices will be generated here -->
+            </div>
+            <div id="controls">
+                <button id="start-button">スタート</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
