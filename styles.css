@@ -1,5 +1,5 @@
-      
-/* version 1.10 */
+          
+/* version 1.11 */
 
     body {
         background-color: #121212;
@@ -51,12 +51,15 @@
         width: 150px;
         height: 150px;
         font-size: 32px;
-        font-family: 'Lexend', sans-serif;
+        /* font-family: 'Lexend', sans-serif; */
         font-weight: bold;
-        border: 2px solid #00ff2a17;
+        box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        border: 2px solid #373737;
         border-radius: 25px;
         background-color: #2c2c2c;
-        color: #ffffff;
+        color: #c6c6c6;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
     }
@@ -138,6 +141,7 @@
         width: 0%;
         transition: width 0.3s;
         position: relative; /* To position the checkmark */
+        border-right: 1px solid #121212; /* 1px separator */
     }
     
     #wrong-bar {
@@ -154,14 +158,23 @@
     
     button.correct {
         background-color: #4CAF50 !important;
-        color: #000 !important;
+        color: #fff !important;
+        text-shadow: 0px 0px 12px rgb(0, 80, 1);
+        font-size: 48px;
+        transition: 
+                    /* background-color 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
+                    /* color 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
+                    /* text-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
 
+                    /* font-size 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+                    font-size 0.2s cubic-bezier(0,1.5,1,1.5);
 
     }
     
     button.incorrect {
         background-color: #f44336 !important;
-        color: #000 !important;
+        color: #0000005f !important;
+        text-shadow: none;
 
 
     }
@@ -169,9 +182,11 @@
     /* Show feedback icons */
     #right-bar.show-check .feedback-check {
         display: block;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
         
     }
     
     #wrong-bar.show-x .feedback-x {
         display: block;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
     }
