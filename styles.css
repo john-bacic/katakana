@@ -1,6 +1,6 @@
     
               
-    /* version 1.12 */
+    /* version 1.13 */
     
         body {
             background-color: #121212;
@@ -170,11 +170,14 @@
                         /* background-color 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
                         /* color 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
                         /* text-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), */
-    
                         /* font-size 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
                         font-size 0.2s cubic-bezier(0,1.5,1,1.5);
-            
+
             transform-origin: center;
+            -webkit-transform-origin: center;
+            -webkit-transition: font-size 0.2s cubic-bezier(0,1.5,1,1.5);
+
+
         }
         
         button.incorrect {
