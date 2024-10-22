@@ -13,7 +13,6 @@
         "type": "image/png"
       }
     ],
-    "start_url": "/",
     "background_color": "#000000",
     "display": "fullscreen",
     "orientation": "portrait-primary"
