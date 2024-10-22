@@ -127,6 +127,8 @@ const startButton = document.getElementById('start-button')
 const scoreElement = document.getElementById('score')
 const triesElement = document.getElementById('tries')
 const scoreContainer = document.getElementById('score-container')
+const feedbackCheck = document.querySelector('.feedback-check')
+const feedbackX = document.querySelector('.feedback-x')
 
 let currentQuestion = null
 let score = 0
@@ -145,6 +147,7 @@ function startGame() {
 
   // Show score container
   scoreContainer.style.display = 'flex'
+  hideFeedback()
 
   startButton.style.display = 'none'
   loadQuestion()
@@ -201,8 +204,10 @@ function selectAnswer(selected) {
     score++
     correctCount++
     scoreElement.textContent = score
+    showFeedback('correct')
   } else {
     wrongCount++
+    showFeedback('incorrect')
   }
   updateScoreBar()
   setTimeout(loadQuestion, 1000)
@@ -223,4 +228,20 @@ function shuffleArray(array) {
     ;[array[i], array[j]] = [array[j], array[i]]
   }
   return array
+}
+
+function showFeedback(type) {
+  if (type === 'correct') {
+    document.getElementById('right-bar').classList.add('show-check')
+    document.getElementById('wrong-bar').classList.remove('show-x')
+  } else {
+    document.getElementById('wrong-bar').classList.add('show-x')
+    document.getElementById('right-bar').classList.remove('show-check')
+  }
+  setTimeout(hideFeedback, 1000)
+}
+
+function hideFeedback() {
+  document.getElementById('right-bar').classList.remove('show-check')
+  document.getElementById('wrong-bar').classList.remove('show-x')
 }
