@@ -1,3 +1,5 @@
+// version 1.18
+
 const katakanaList = [
   // Basic Vowels
   { katakana: 'ア', romaji: 'a' },
@@ -134,6 +136,7 @@ let currentQuestion = null
 let score = 0
 let correctCount = 0
 let wrongCount = 0
+let questionQueue = shuffleArray([...katakanaList])
 
 startButton.addEventListener('click', startGame)
 
@@ -154,8 +157,10 @@ function startGame() {
 }
 
 function loadQuestion() {
-  const randomIndex = Math.floor(Math.random() * katakanaList.length)
-  currentQuestion = katakanaList[randomIndex]
+  if (questionQueue.length === 0) {
+    questionQueue = shuffleArray([...katakanaList])
+  }
+  currentQuestion = questionQueue.pop()
   questionElement.textContent = `${currentQuestion.katakana}`
 
   // Generate choices
