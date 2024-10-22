@@ -2,7 +2,7 @@
     body {
         background-color: #121212;
         color: #ffffff;
-        font-family: Arial, sans-serif;
+        font-family: 'Lexend', sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -123,12 +123,12 @@
     
     button.correct {
         background-color: #4CAF50 !important;
-        color: #fff !important;
+        color: #000 !important;
     }
     
     button.incorrect {
         background-color: #f44336 !important;
-        color: #fff !important;
+        color: #000 !important;
     }
 
 /* Disable hover effects on touch devices */
