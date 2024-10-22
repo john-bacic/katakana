@@ -1,4 +1,4 @@
-         /* version 1.19 */
+         /* version 1.20 */
     
         body {
             background-color: #121212;
@@ -131,8 +131,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 16px;
-            color: #ffffff;
+            font-size: 10px;
+            color: #000000;
             display: none; /* Hidden by default */
         }
         
@@ -199,11 +199,11 @@
         /* Show feedback icons */
         #right-bar.show-check .feedback-check {
             display: block;
-            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+            /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25); */
             
         }
         
         #wrong-bar.show-x .feedback-x {
             display: block;
-            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+            /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25); */
         }
