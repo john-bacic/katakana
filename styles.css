@@ -1,4 +1,4 @@
-         /* version 1.22 */
+         /* version 1.23 */
     
         body {
             background-color: #121212;
@@ -75,12 +75,7 @@
             align-items: center;
         }
         
-        .choice-button:hover {
-            background-color: #4CAF50;
-            color: #ffffff;
-        }
-        
-        /* Hover effect removed */
+
         
         .choice-button:disabled {
             background-color: #3c3c3c;
