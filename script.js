@@ -1,4 +1,4 @@
-// version 1.29
+// version 1.30
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
