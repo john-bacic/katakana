@@ -135,7 +135,7 @@
         #score-bar {
             flex-grow: 1;
             height: 20px;
-            background-color: #000000;
+            background-color: #f44336;
             border-radius: 10px;
             overflow: hidden;
             display: flex;
