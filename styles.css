@@ -55,7 +55,7 @@
             /* 4px 4px 0 #00cc0060, */
             10px 16px 15px #000000df;
             transform: perspective(500px) rotateY(0deg);
-            animation: subtleRotate 5s infinite alternate;
+            animation: subtleRotate 3s infinite alternate;
         }
 
    
