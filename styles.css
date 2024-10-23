@@ -45,9 +45,16 @@
         #question {
             font-family: "Noto Sans JP", sans-serif;
             font-optical-sizing: auto;
+
+
             font-weight: 400;
-            font-size: 100px;
+
+            font-size: 150px;
+
             color: #00ff2a;
+
+            margin-top: 0px;
+
             text-shadow:
             1px 1px 0 #00e600c7,
             2px 2px 0 #00e600b2,
@@ -82,7 +89,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin-top: auto;
+            /* margin-top: auto; */
+            margin-top: -80px;
         }
         
         .choice-button {
