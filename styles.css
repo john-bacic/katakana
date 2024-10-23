@@ -1,6 +1,6 @@
          /* version 1.29 */
     
-        body {
+       body {
             background-color: #121212;
             color: #ffffff;
             font-family: 'Lexend', sans-serif;
@@ -11,6 +11,12 @@
             align-items: center;
             min-height: 90svh;
             overflow-x: hidden;
+            /* overflow: hidden; */
+        }
+        
+        html, body {
+            overflow: hidden;
+            height: 100%;
         }
         
 
@@ -434,3 +440,4 @@
 .overlay.show ~ .container {
     pointer-events: none;
 }
+
