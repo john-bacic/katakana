@@ -173,7 +173,7 @@
         
         #wrong-bar {
             height: 100%;
-            background-color: #ae261d;
+            background-color: #f44336;
             width: 0%;
             transition: width 0.3s;
             position: relative; /* To position the X */
