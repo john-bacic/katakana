@@ -44,39 +44,29 @@
         }
         
         #question {
-            font-family: "Noto Sans JP", sans-serif;
-            font-optical-sizing: auto;
-
-
-            font-weight: 400;
-
+            position: relative;
+            margin-top: 0;
             font-size: 150px;
-
+            font-family: "Noto Sans JP", sans-serif;
             color: #00ff2a;
-
-            margin-top: 0px;
-
-            text-shadow:
-            1px 1px 0 #00e600c7,
-            2px 2px 0 #00e600b2,
-            /* 3px 3px 0 #00cc008b, */
-            /* 4px 4px 0 #00cc0060, */
-            10px 16px 15px #000000df;
-            transform: perspective(500px) rotateY(0deg);
-            animation: subtleRotate 3s infinite alternate;
+            transform-style: preserve-3d;
+            animation: float 4s ease-in-out infinite;
+            text-shadow: 
+                0 0 5px rgba(95, 227, 0, 0.25),
+                0 0 25px rgba(52, 163, 0, 0.216),
+                -15px 10px 15px rgba(0, 0, 0, 0.494);
         }
+    
 
-   
-
-        @keyframes subtleRotate {
-            from {
-                transform: perspective(500px) rotateY(0deg);
+    
+        @keyframes float {
+            0%, 100% { 
+                transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(50px); 
             }
-            to {
-                transform: perspective(500px) rotateY(10deg);
+            50% { 
+                transform: perspective(800px) rotateY(25deg) rotateX(10deg) translateZ(30px); 
             }
         }
-
 
 
 
