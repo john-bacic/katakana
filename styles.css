@@ -40,6 +40,7 @@
         #game {
             margin-top: 60px; /* Adjust based on score-container height */
             flex-grow: 1;
+
         }
         
         #question {
@@ -162,6 +163,7 @@
             display: none; /* Hide initially */
             align-items: center;
             gap: 15px; /* Space between bar and score */
+            z-index: 2000;
         }
         
         #score-bar {
