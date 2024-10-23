@@ -52,6 +52,47 @@ document.addEventListener('DOMContentLoaded', () => {
     { katakana: 'ネ', romaji: 'ne' },
     { katakana: 'ノ', romaji: 'no' },
 
+    // H Series
+    { katakana: 'ハ', romaji: 'ha' },
+    { katakana: 'ヒ', romaji: 'hi' },
+    { katakana: 'フ', romaji: 'fu' },
+    { katakana: 'ヘ', romaji: 'he' },
+    { katakana: 'ホ', romaji: 'ho' },
+    { katakana: 'バ', romaji: 'ba' },
+    { katakana: 'ビ', romaji: 'bi' },
+    { katakana: 'ブ', romaji: 'bu' },
+    { katakana: 'ベ', romaji: 'be' },
+    { katakana: 'ボ', romaji: 'bo' },
+    { katakana: 'パ', romaji: 'pa' },
+    { katakana: 'ピ', romaji: 'pi' },
+    { katakana: 'プ', romaji: 'pu' },
+    { katakana: 'ペ', romaji: 'pe' },
+    { katakana: 'ポ', romaji: 'po' },
+
+    // M Series
+    { katakana: 'マ', romaji: 'ma' },
+    { katakana: 'ミ', romaji: 'mi' },
+    { katakana: 'ム', romaji: 'mu' },
+    { katakana: 'メ', romaji: 'me' },
+    { katakana: 'モ', romaji: 'mo' },
+
+    // Y Series
+    { katakana: 'ヤ', romaji: 'ya' },
+    { katakana: 'ユ', romaji: 'yu' },
+    { katakana: 'ヨ', romaji: 'yo' },
+
+    // R Series
+    { katakana: 'ラ', romaji: 'ra' },
+    { katakana: 'リ', romaji: 'ri' },
+    { katakana: 'ル', romaji: 'ru' },
+    { katakana: 'レ', romaji: 're' },
+    { katakana: 'ロ', romaji: 'ro' },
+
+    // W Series
+    { katakana: 'ワ', romaji: 'wa' },
+    { katakana: 'ヲ', romaji: 'wo' },
+    { katakana: 'ン', romaji: 'n' },
+
     // Further Katakana entries...
     { katakana: 'ミュ', romaji: 'myu' },
     { katakana: 'ミョ', romaji: 'myo' },
@@ -79,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0
   let correctCount = 0
   let wrongCount = 0
-  let questionQueue = shuffleArray([...katakanaList])
+  let questionQueue = []
 
   let timerInterval
   const totalTime = 60
@@ -91,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameOverOverlay = document.getElementById('game-over-overlay')
   const overlayStartButton = document.getElementById('overlay-start-button')
   const startButtonContainer = document.getElementById('start-button-container')
+
+  let isFirstStart = true
 
   // Attach event listener to Start button
   overlayStartButton.addEventListener('click', () => {
@@ -117,14 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ensure the Start button container is hidden
     startButtonContainer.style.display = 'none'
 
-    // Reset choices and load the first question
+    // Initialize and shuffle the questionQueue
+    questionQueue = shuffleArray([...katakanaList])
+
+    // Reset timer
+    resetTimer()
+
+    // Load the first question
     loadQuestion()
     startTimer()
   }
 
   function loadQuestion() {
     if (questionQueue.length === 0) {
-      questionQueue = shuffleArray([...katakanaList])
+      endGame() // End the game when no more unique questions are left
+      return
     }
     currentQuestion = questionQueue.pop()
     questionElement.textContent = `${currentQuestion.katakana}`
@@ -242,7 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetTimer() {
     clearInterval(timerInterval)
-    timerCircle.style.strokeDashoffset = 0
+    const circumference = 2 * Math.PI * 45
+    timerCircle.style.strokeDashoffset = circumference
     timerText.textContent = totalTime
   }
 
@@ -251,6 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOverOverlay.classList.add('show')
     // Show the Start button container
     startButtonContainer.style.display = 'flex'
+    // Update the button text based on the game state
+    if (isFirstStart) {
+      isFirstStart = false
+      overlayStartButton.textContent = 'スタート'
+    } else {
+      overlayStartButton.textContent = 'レスタート'
+    }
     // Remove hidden-button class to show the Start button
     overlayStartButton.classList.remove('hidden-button')
     resetTimer()
