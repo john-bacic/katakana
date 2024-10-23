@@ -1,4 +1,4 @@
-// version 1.33
+// version 1.34
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -290,6 +290,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('right-bar').style.width = `${rightPercent}%`
     document.getElementById('wrong-bar').style.width = `${wrongPercent}%`
     triesElement.textContent = total
+
+    // Hide spacer if either right or wrong is 100%
+    const spacer = document.getElementById('spacer')
+    if (rightPercent === 100 || wrongPercent === 100) {
+      spacer.style.display = 'none'
+    } else {
+      spacer.style.display = 'block'
+    }
   }
 
   function shuffleArray(array) {
