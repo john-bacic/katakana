@@ -287,7 +287,8 @@
     /* border-radius: 10px; */
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.5s ease;
-    min-width:300px;
+    min-width: 300px;
+    white-space: nowrap;
 }
 
 #overlay-start-button:hover {
