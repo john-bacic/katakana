@@ -92,7 +92,7 @@
             width: 150px;
             height: 150px;
             font-size: 32px;
-            /* font-family: 'Lexend', sans-serif; */
+            font-family: 'Lexend', sans-serif;
             font-weight: bold;
             box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -479,5 +479,10 @@
 
 .lexend {
     font-family: 'Lexend', sans-serif;
-    font-size: 48px; /* Adjust as needed */
+    font-size: 48px; 
+    font-weight: 600;
+
+
+
+
 }
