@@ -1,4 +1,4 @@
-// version 1.31
+// version 1.33
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -150,6 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
     triesElement.textContent = 0
     updateScoreBar()
 
+    // Reset the correct bar
+    const rightBar = document.getElementById('right-bar')
+    rightBar.style.width = '0%'
+
     // Show score container
     scoreContainer.style.display = 'flex'
     hideFeedback()
@@ -259,13 +263,20 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.border = 'none'
       }
     })
+    const rightBar = document.getElementById('right-bar')
+    let currentWidth = parseFloat(rightBar.style.width) || 0
+
     if (selected === currentQuestion.romaji) {
       score++
       correctCount++
       scoreElement.textContent = score
+      // Increase correct bar by 5%
+      rightBar.style.width = `${Math.min(currentWidth + 5, 100)}%`
       showFeedback('correct')
     } else {
       wrongCount++
+      // Reduce correct bar by 5%
+      rightBar.style.width = `${Math.max(currentWidth - 5, 0)}%`
       showFeedback('incorrect')
     }
     updateScoreBar()

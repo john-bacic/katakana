@@ -1,4 +1,4 @@
-         /* version 1.32 */
+         /* version 1.33 */
     
          body {
             background-color: #121212;
@@ -173,7 +173,7 @@
         
         #wrong-bar {
             height: 100%;
-            background-color: #9c2b23;
+            background-color: #ae261d;
             width: 0%;
             transition: width 0.3s;
             position: relative; /* To position the X */
@@ -437,4 +437,12 @@
 
 .overlay.show ~ .container {
     pointer-events: none;
+}
+
+#spacer {
+    width: 1px;
+    margin-left: -1px;
+    z-index: 10;
+    background-color: #1e1e1e;
+
 }
