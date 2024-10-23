@@ -1,4 +1,4 @@
-         /* version 1.28 */
+         /* version 1.29 */
     
         body {
             background-color: #121212;
@@ -38,9 +38,10 @@
         
         #question {
 
-            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-family: "Noto Sans JP", sans-serif;
+            font-optical-sizing: auto;
             font-weight: 400;
-            font-style: normal;
+            /* font-style: normal; */
 
             font-size: 100px;
             margin-bottom: 100px;
@@ -289,9 +290,9 @@
     padding: 20px 40px;
     /* font-size: 48px; */
     font-size: 32px;
-    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
 
     background-color: #00ff2a;
     color: #000;
