@@ -302,7 +302,7 @@
     color: #000;
 
     border: 1px solid #00ff2a;
-    outline:8px solid #00ff2a15;
+    outline: 8px solid #00ff2a15;
 
 
     border-radius: 100px;
@@ -444,7 +444,7 @@
 }
 
 #spacer {
-    width: 2px;
+    width: 1px;
     /* margin-left: -1px; */
     z-index: 10;
     background-color: #1e1e1e;
