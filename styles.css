@@ -1,4 +1,4 @@
-         /* version 1.35 */
+         /* version 1.36 */
     
          body {
             background-color: #121212;
@@ -43,15 +43,39 @@
         }
         
         #question {
-
             font-family: "Noto Sans JP", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 400;
-            /* font-style: normal; */
+            font-weight: 500;
             font-size: 100px;
-            /* margin-bottom: 100px; */
             color: #00ff2a;
+            text-shadow:
+            1px 1px 0 #00e600c7,
+            2px 2px 0 #00e600b2,
+            /* 3px 3px 0 #00cc008b, */
+            /* 4px 4px 0 #00cc0060, */
+            10px 16px 15px #000000df;
+            transform: perspective(500px) rotateY(0deg);
+            animation: subtleRotate 5s infinite alternate;
         }
+
+   
+
+        @keyframes subtleRotate {
+            from {
+                transform: perspective(500px) rotateY(0deg);
+            }
+            to {
+                transform: perspective(500px) rotateY(10deg);
+            }
+        }
+
+
+
+
+
+
+
+
 
 
         #choices-container {
@@ -296,7 +320,7 @@
     font-size: 32px;
     font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 900;
 
     background-color: #00ff2a;
     color: #000;
