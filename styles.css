@@ -1,4 +1,4 @@
-         /* version 1.31 */
+         /* version 1.32 */
     
        body {
             background-color: #121212;
@@ -57,7 +57,7 @@
         #choices-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 30px;
             margin-top: auto;
         }
         
