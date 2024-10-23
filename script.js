@@ -1,4 +1,4 @@
-// version 1.25
+// version 1.26
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreElement = document.getElementById('score')
   const triesElement = document.getElementById('tries')
   const scoreContainer = document.getElementById('score-container')
-  const feedbackCheck = document.querySelector('.feedback-check')
-  const feedbackX = document.querySelector('.feedback-x')
+  // const feedbackCheck = document.querySelector('.feedback-check')
+  // const feedbackX = document.querySelector('.feedback-x')
 
   let currentQuestion = null
   let score = 0
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlayStartButton = document.getElementById('overlay-start-button')
   const startButtonContainer = document.getElementById('start-button-container')
 
-  let isFirstStart = true
+  let isFirstStart = false
 
   // Attach event listener to Start button
   overlayStartButton.addEventListener('click', () => {
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startButtonContainer.style.display = 'flex'
     // Update the button text based on the game state
     if (isFirstStart) {
-      isFirstStart = false
+      isFirstStart = true
       overlayStartButton.textContent = 'スタート'
     } else {
       overlayStartButton.textContent = 'レスタート'
