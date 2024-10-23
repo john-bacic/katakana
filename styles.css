@@ -1,4 +1,4 @@
-         /* version 1.27 */
+         /* version 1.28 */
     
         body {
             background-color: #121212;
@@ -37,6 +37,11 @@
         }
         
         #question {
+
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
             font-size: 100px;
             margin-bottom: 100px;
             color: #00ff2a;
@@ -104,7 +109,9 @@
                 color: #000;
                 font-size: 48px;
                 /* padding: 15px 30px; */
-                font-weight: bold;
+  
+
+
 
             }
         
@@ -251,12 +258,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    /* Removed opacity here to manage via pseudo-element */
+    pointer-events: all; /* Ensure it captures all mouse events */
 }
 
 .overlay::before {
@@ -281,14 +288,20 @@
     position: relative; /* Ensure it's above the pseudo-element */
     padding: 20px 40px;
     /* font-size: 48px; */
+    font-size: 32px;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
     background-color: #00ff2a;
     color: #000;
     border: none;
-    /* border-radius: 10px; */
+    border-radius: 100px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.5s ease;
     min-width: 200px;
     white-space: nowrap;
+
 }
 
 #overlay-start-button:hover {
@@ -321,7 +334,7 @@
     /* min-width: 50vw; */
     justify-content: center;
     align-items: center;
-   
+    pointer-events: all; /* Ensure the button is clickable */
 }
 
 /* Overlay Styles */
@@ -336,6 +349,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    pointer-events: all; /* Ensure it captures all mouse events */
 }
 
 /* Show overlay when not hidden */
@@ -344,16 +358,15 @@
 }
 
 /* Ensure the Start button transitions smoothly */
-#overlay-start-button {
+/* #overlay-start-button {
     padding: 20px 40px;
-    font-size: 32px;
     background-color: #00ff2a;
     color: #000;
     border: none;
     border-radius: 100px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.5s ease;
-}
+} */
 
 #overlay-start-button:hover {
     transform: scale(1.05);
@@ -378,4 +391,45 @@
     .timer-text {
         font-size: 1em; 
     } */
+}
+
+/* Optional: Prevent interactions with the container when game is over */
+.container {
+    pointer-events: auto; /* Default state */
+}
+
+/* When overlay is shown, disable pointer events on container */
+.overlay.show ~ .container {
+    pointer-events: none;
+}
+
+/* Ensure the overlay is properly hidden and shown */
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+/* Ensure the start button is above the overlay */
+#start-button-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; /* Above the overlay */
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+}
+
+/* Prevent interactions with the container when overlay is active */
+.container {
+    pointer-events: auto; /* Default state */
+}
+
+.overlay.show ~ .container {
+    pointer-events: none;
 }

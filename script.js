@@ -1,4 +1,4 @@
-// version 1.27
+// version 1.28
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -113,8 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreElement = document.getElementById('score')
   const triesElement = document.getElementById('tries')
   const scoreContainer = document.getElementById('score-container')
-  // const feedbackCheck = document.querySelector('.feedback-check')
-  // const feedbackX = document.querySelector('.feedback-x')
 
   let currentQuestion = null
   let score = 0
@@ -133,13 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlayStartButton = document.getElementById('overlay-start-button')
   const startButtonContainer = document.getElementById('start-button-container')
 
-  let isFirstStart = false
+  let isFirstStart = true
 
-  // Attach event listener to Start button
+  // Attach event listeners to Start button for both click and touchstart
   overlayStartButton.addEventListener('click', () => {
     startGame()
-    // Hide the Start button container by setting display to 'none'
-    startButtonContainer.style.display = 'none'
+  })
+
+  overlayStartButton.addEventListener('touchstart', () => {
+    startGame()
   })
 
   function startGame() {
@@ -154,11 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreContainer.style.display = 'flex'
     hideFeedback()
 
-    // Hide the overlay if it's visible
+    // Hide the overlay and start button
     gameOverOverlay.classList.remove('show')
-
-    // Ensure the Start button container is hidden
+    gameOverOverlay.classList.add('hidden')
     startButtonContainer.style.display = 'none'
+
+    // Re-enable interactions with the game container
+    document.querySelector('.container').style.pointerEvents = 'auto'
 
     // Initialize and shuffle the questionQueue
     questionQueue = shuffleArray([...katakanaList])
@@ -171,9 +173,43 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer()
   }
 
+  function endGame() {
+    // Show the overlay background
+    gameOverOverlay.classList.remove('hidden')
+    gameOverOverlay.classList.add('show')
+
+    // Show the Start button container
+    startButtonContainer.style.display = 'flex'
+
+    // Update the button text based on the game state
+    overlayStartButton.textContent = isFirstStart ? 'スタート' : 'レスタート'
+    isFirstStart = false
+
+    // Remove hidden-button class to show the Start button
+    overlayStartButton.classList.remove('hidden-button')
+
+    resetTimer()
+
+    // Stop the timer
+    clearInterval(timerInterval)
+
+    // Disable all choice buttons
+    const buttons = document.querySelectorAll('.choice-button')
+    buttons.forEach((button) => {
+      button.disabled = true
+    })
+
+    // Disable interactions with the rest of the game container
+    document.querySelector('.container').style.pointerEvents = 'none'
+  }
+
   function loadQuestion() {
     if (questionQueue.length === 0) {
       endGame() // End the game when no more unique questions are left
+      return
+    }
+    if (timeLeft <= 0) {
+      endGame() // Ensure the game stops if time has run out
       return
     }
     currentQuestion = questionQueue.pop()
@@ -280,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         endGame()
       }
       updateTimer()
-    }, 1000)
+    }, 1000) // Changed from 100ms to 1000ms
   }
 
   function updateTimer() {
@@ -296,27 +332,4 @@ document.addEventListener('DOMContentLoaded', () => {
     timerCircle.style.strokeDashoffset = circumference
     timerText.textContent = totalTime
   }
-
-  function endGame() {
-    // Show the overlay background
-    gameOverOverlay.classList.add('show')
-    // Show the Start button container
-    startButtonContainer.style.display = 'flex'
-    // Update the button text based on the game state
-    if (isFirstStart) {
-      isFirstStart = true
-      overlayStartButton.textContent = 'スタート'
-    } else {
-      overlayStartButton.textContent = 'レスタート'
-    }
-    // Remove hidden-button class to show the Start button
-    overlayStartButton.classList.remove('hidden-button')
-    resetTimer()
-  }
-
-  // Optionally, you can add logic to hide the Start button when the overlay is shown
-  gameOverOverlay.addEventListener('click', () => {
-    // Example: Click on overlay to restart
-    startGame()
-  })
 })
