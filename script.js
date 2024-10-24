@@ -1,6 +1,10 @@
-// version 1.41
+// version 1.42
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Clear local storage at the start of the app
+  localStorage.clear()
+  localStorage.removeItem('shownCharacters') // Add this line to specifically remove shownCharacters
+
   const katakanaList = [
     // Basic Vowels
     { katakana: 'ア', romaji: 'a' },
