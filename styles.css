@@ -535,15 +535,12 @@
 
 }
 
-/* Add this at the end of styles.css */
-
 .lexend {
     font-family: 'Lexend', sans-serif;
     font-size: 48px; 
     font-weight: 600;
-
-
-
-
+    animation: none; 
 }
+
+
 
