@@ -417,8 +417,8 @@
     justify-content: center;
     align-items: center;
     pointer-events: all;
-    transition: all 0.3s ease;
-    bottom: 10%; /* Default bottom position for restart */
+    /* transition: all 0.3s ease; */
+    bottom: 0; /* Default bottom position for restart */
 }
 
 /* Initial position (center of screen) */
@@ -506,7 +506,7 @@
 /* Ensure the start button is above the overlay */
 #start-button-container {
     position: fixed;
-    bottom: .1%;
+    bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001; /* Above the overlay */
