@@ -1,4 +1,4 @@
-// version 1.39
+// version 1.40
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -175,6 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the first question
     loadQuestion()
     startTimer()
+
+    // Remove the initial position class and add restart position
+    startButtonContainer.classList.remove('initial-position')
   }
 
   function endGame() {
@@ -182,8 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOverOverlay.classList.remove('hidden')
     gameOverOverlay.classList.add('show')
 
-    // Show the Start button container
+    // Show the Start button container in bottom position
     startButtonContainer.style.display = 'flex'
+    startButtonContainer.classList.remove('initial-position')
 
     // Update the button text based on the game state
     overlayStartButton.textContent = isFirstStart ? 'スタート' : 'レスタート'
@@ -396,4 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     questionQueue = shuffleArray([...availableKatakana])
   }
+
+  // Add initial position class when page loads
+  startButtonContainer.classList.add('initial-position')
 })

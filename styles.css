@@ -1,4 +1,4 @@
-         /* version 1.39 */
+         /* version 1.40 */
     
          body {
             background-color: #121212;
@@ -411,14 +411,20 @@
 /* Container for the Start button */
 #start-button-container {
     position: fixed;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1001; /* Above the overlay */
-    /* min-width: 50vw; */
+    transform: translateX(-50%);
+    z-index: 1001;
     justify-content: center;
     align-items: center;
-    pointer-events: all; /* Ensure the button is clickable */
+    pointer-events: all;
+    transition: all 0.3s ease;
+    bottom: 10%; /* Default bottom position for restart */
+}
+
+/* Initial position (center of screen) */
+#start-button-container.initial-position {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
 }
 
 /* Overlay Styles */
@@ -500,7 +506,7 @@
 /* Ensure the start button is above the overlay */
 #start-button-container {
     position: fixed;
-    top: 50%;
+    bottom: .1%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001; /* Above the overlay */
@@ -537,6 +543,4 @@
 
 
 }
-
-
 
