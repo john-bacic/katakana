@@ -145,7 +145,8 @@
             align-items: center;
             transform: scale(1);
             transform: opacity(0.8);
-            transition: transform 0.1s; /* Changed from 0.1s to 0s */
+            transition: transform 0s; /* Changed from 0.1s to 0s */
+            touch-action: manipulation; /* Optimize for touch */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -259,11 +260,14 @@
             color: #fff !important;
             text-shadow: 0px 0px 12px rgb(0, 80, 1);
             font-size: 48px;
-            transition: font-size 0.2s cubic-bezier(0,1.5,1,1.5);
+            transition: font-size 0.2s cubic-bezier(0,1.5,1,1.5), transform 0.1s; /* Added transform timing */
             transform-origin: center;
             -webkit-transform-origin: center;
-            -webkit-transition: font-size 0.2s cubic-bezier(0,1.5,1,1.5);
+            -webkit-transition: font-size 0.2s cubic-bezier(0,1.5,1,1.5), transform 0s;
         }
+
+
+
         
         button.incorrect {
             background-color: #f44336 !important;
@@ -533,5 +537,6 @@
 
 
 }
+
 
 
