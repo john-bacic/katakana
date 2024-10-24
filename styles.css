@@ -1,4 +1,4 @@
-         /* version 1.38 */
+         /* version 1.39 */
     
          body {
             background-color: #121212;
@@ -135,9 +135,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transform: scale(1);
+            transition: transform 0s; /* Changed from 0.1s to 0s */
         }
         
-
+        .choice-button:active {
+            transform: scale(0.95);
+        }
         
         .choice-button:disabled {
             background-color: #3c3c3c;
@@ -515,3 +519,4 @@
 
 
 }
+
