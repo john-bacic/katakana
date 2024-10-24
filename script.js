@@ -1,4 +1,4 @@
-// version 1.40
+// version 1.41
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -189,8 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
     startButtonContainer.style.display = 'flex'
     startButtonContainer.classList.remove('initial-position')
 
-    // Update the button text based on the game state
-    overlayStartButton.textContent = isFirstStart ? 'スタート' : 'レスタート'
+    // Update the button text based on position
+    overlayStartButton.textContent = startButtonContainer.classList.contains(
+      'initial-position'
+    )
+      ? 'スタート'
+      : 'レスタート'
     isFirstStart = false
 
     // Remove hidden-button class to show the Start button
