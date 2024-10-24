@@ -1,4 +1,4 @@
-// version 1.36
+// version 1.37
 
 document.addEventListener('DOMContentLoaded', () => {
   const katakanaList = [
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-enable interactions with the game container
     document.querySelector('.container').style.pointerEvents = 'auto'
 
-    // Initialize and shuffle the questionQueue
-    questionQueue = shuffleArray([...katakanaList])
+    // Initialize question queue with tracking
+    updateQuestionQueue()
 
     // Reset timer
     resetTimer()
@@ -209,17 +209,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadQuestion() {
     if (questionQueue.length === 0) {
-      endGame() // End the game when no more unique questions are left
-      return
+      updateQuestionQueue()
+      if (questionQueue.length === 0) {
+        endGame()
+        return
+      }
     }
     if (timeLeft <= 0) {
-      endGame() // Ensure the game stops if time has run out
+      endGame()
       return
     }
-    currentQuestion = questionQueue.pop()
-    questionElement.textContent = `${currentQuestion.katakana}`
 
-    // Generate choices
+    currentQuestion = questionQueue.pop()
+
+    // Track shown character
+    const shownCharacters =
+      JSON.parse(localStorage.getItem('shownCharacters')) || []
+    if (!shownCharacters.includes(currentQuestion.katakana)) {
+      shownCharacters.push(currentQuestion.katakana)
+      localStorage.setItem('shownCharacters', JSON.stringify(shownCharacters))
+    }
+
+    questionElement.textContent = `${currentQuestion.katakana}`
     const choices = generateChoices(currentQuestion.romaji)
     displayChoices(choices)
   }
@@ -350,5 +361,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const circumference = 2 * Math.PI * 45
     timerCircle.style.strokeDashoffset = circumference
     timerText.textContent = totalTime
+  }
+
+  // Add these functions at the same scope level as other functions
+  function initializeKatakanaTracking() {
+    let trackedKatakana =
+      JSON.parse(localStorage.getItem('trackedKatakana')) || {}
+
+    // Reset tracking if all characters have been shown twice
+    if (Object.values(trackedKatakana).every((count) => count >= 2)) {
+      localStorage.removeItem('trackedKatakana')
+      trackedKatakana = {}
+    }
+
+    return trackedKatakana
+  }
+
+  function updateQuestionQueue() {
+    // Get shown characters from localStorage
+    const shownCharacters =
+      JSON.parse(localStorage.getItem('shownCharacters')) || []
+
+    // If all characters have been shown, reset the list
+    if (shownCharacters.length >= katakanaList.length) {
+      localStorage.removeItem('shownCharacters')
+      questionQueue = shuffleArray([...katakanaList])
+      return
+    }
+
+    // Filter out already shown characters
+    const availableKatakana = katakanaList.filter(
+      (item) => !shownCharacters.includes(item.katakana)
+    )
+
+    questionQueue = shuffleArray([...availableKatakana])
   }
 })
