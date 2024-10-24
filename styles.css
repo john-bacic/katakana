@@ -201,7 +201,7 @@
             display: none; /* Hide initially */
             align-items: center;
             gap: 15px; /* Space between bar and score */
-            z-index: 2000;
+            /* z-index: 2000; */
         }
         
         #score-bar {
@@ -212,6 +212,7 @@
             overflow: hidden;
             display: flex;
             position: relative; /* To position icons within bars */
+            z-index: 2000;
         }
         
         /* Feedback Icons */
@@ -253,6 +254,7 @@
         
         #score {
             font-weight: bold;
+            
         }
         
         button.correct {
@@ -297,6 +299,7 @@
         height: 60px;
         margin-right: 15px;
         /* transform: rotate(90deg); */
+        z-index: 10;
     }
 
     .timer-svg {
