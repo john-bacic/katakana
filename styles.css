@@ -144,7 +144,8 @@
             justify-content: center;
             align-items: center;
             transform: scale(1);
-            transition: transform 0s; /* Changed from 0.1s to 0s */
+            transform: opacity(0.8);
+            transition: transform 0.1s; /* Changed from 0.1s to 0s */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -153,6 +154,7 @@
         
         .choice-button:active {
             transform: scale(0.95);
+            opacity: 0.8;
         }
         
         .choice-button:disabled {
