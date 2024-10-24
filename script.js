@@ -1,4 +1,4 @@
-// version 1.42
+// version 1.43
 
 document.addEventListener('DOMContentLoaded', () => {
   // Clear local storage at the start of the app
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'initial-position'
     )
       ? 'スタート'
-      : 'レスタート'
+      : 'リスタート'
     isFirstStart = false
 
     // Remove hidden-button class to show the Start button
